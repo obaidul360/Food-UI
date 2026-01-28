@@ -12,11 +12,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<String> images = [
-    'image/enjoy.png',
-    'image/pizza.jpg',
-    'image/bargarr.png',
-    'image/Menu.png',
-    'image/pasta.png',
+    'assets/images/enjoy.png',
+    'assets/images/bargar.png',
+    'assets/images/menu.png',
+    'assets/images/pasta.png',
+    'assets/images/pizza.jpg',
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -28,8 +29,8 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Column(
           children: [
-            Image.asset("image/bargarr.png")
-            /*CarouselSlider(
+            //Image.asset("assets/images/menu.png")
+            CarouselSlider(
               options: CarouselOptions(
                 height: 200,
                 autoPlay: true,
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 );
               }).toList(),
-            ),*/
+            ),
           ],
         ),
       ),
