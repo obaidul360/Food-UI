@@ -69,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 SizedBox(height: 20),
+
                 /// Password Field
                 TextFormField(
                   obscureText: !_isPasswordVisible,
@@ -123,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 60),
+                const SizedBox(height: 30),
                 InkWell(
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
@@ -134,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                   },
                   child: Container(
-                    height: 50,
+                    height: 40,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Color(0xff003465),
@@ -145,33 +146,145 @@ class _LoginScreenState extends State<LoginScreen> {
                         "LogIn",
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 25,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
                         ),
                       ),
                     ),
                   ),
                 ),
+                const SizedBox(height: 30),
 
-                /// Login Button
-                /*SizedBox(
-                  width: double.infinity,
-                  height: 48,
-                  child: ElevatedButton(
-                    style: ButtonStyle(backgroundColor: ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        print("Email: ${emailController.text}");
-                        print("Password: ${passwordController.text}");
-          
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Login Successful")),
-                        );
-                      }
-                    },
-                    child: const Text("Login"),
+                // Registration
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  child: Container(
+                    height: 40,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color(0xff003465),
+                      borderRadius: BorderRadius.all(Radius.circular(13)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Registration",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
                   ),
-                ),*/
+                ),
+                SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Continue with.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 15),
+                Row(
+                  spacing: 8,
+                  children: [
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        },
+                        child: Container(
+                          height: 40,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            //color: Color(0xff84B41A),
+                            color: Color(0xffE44134),
+                            borderRadius: BorderRadius.all(Radius.circular(13)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Google",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        },
+                        child: Container(
+                          height: 40,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xff395693),
+                            borderRadius: BorderRadius.all(Radius.circular(13)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Facebook",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                        },
+                        child: Container(
+                          height: 40,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xff00D1BB),
+                            borderRadius: BorderRadius.all(Radius.circular(13)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "TikTok",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
