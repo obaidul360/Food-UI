@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_ui/src/bottm_nav_bar/widgets.dart';
+import 'package:food_ui/src/form/login.dart';
+import 'package:food_ui/src/splash/splash_screen.dart';
 
 
 void main(){
@@ -21,7 +23,7 @@ class FoodApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: BottomNavigationBarScreen(),
+            home:SplashScreen()// LoginScreen()//BottomNavigationBarScreen(),
           );
         },
       ),
