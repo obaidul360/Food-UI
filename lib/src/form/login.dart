@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:food_ui/src/form/registation.dart';
 
+import '../bottm_nav_bar/widgets.dart';
 import '../pages/home.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,7 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmpasswordController = TextEditingController();
+  final TextEditingController confirmpasswordController =
+      TextEditingController();
   bool _isPasswordVisible = false;
 
   @override
@@ -64,8 +67,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (value == null || value.isEmpty) {
                       return "Please enter email.***";
                     }
-                    if (!value.contains("@")) {
-                      return "Please enter a valid mail.***";
+                    bool isEmail = value.contains("@");
+                    bool isPhone = value.length == 11;
+
+                    if (!isEmail && !isPhone) {
+                      return "Enter valid email or phone number";
                     }
                     return null;
                   },
@@ -173,7 +179,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (_formKey.currentState!.validate()) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(
+                          builder: (context) => BottomNavigationBarScreen(),
+                        ),
                       );
                     }
                   },
@@ -203,7 +211,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(
+                        builder: (context) => RegistationScreen(),
+                      ),
                     );
                   },
                   child: Container(

@@ -6,8 +6,7 @@ import 'package:food_ui/src/form/login.dart';
 import 'package:food_ui/src/form/registation.dart';
 import 'package:food_ui/src/splash/splash_screen.dart';
 
-
-void main(){
+void main() {
   runApp(FoodApp());
 }
 
@@ -24,12 +23,10 @@ class FoodApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home:RegistationScreen()//SplashScreen()// LoginScreen()//BottomNavigationBarScreen(),
+            home: SplashScreen(),
           );
         },
       ),
     );
   }
 }
-
-

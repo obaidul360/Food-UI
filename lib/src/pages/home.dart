@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
     'assets/images/menu.png',
     'assets/images/pasta.png',
     'assets/images/pizza.jpg',
-
   ];
   @override
   Widget build(BuildContext context) {

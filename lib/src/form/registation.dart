@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../pages/home.dart';
+import 'login.dart';
 
 class RegistationScreen extends StatefulWidget {
   const RegistationScreen({super.key});
@@ -215,7 +216,7 @@ class _RegistationScreenState extends State<RegistationScreen> {
                     if (_formKey.currentState!.validate()) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
                       );
                     }
                   },

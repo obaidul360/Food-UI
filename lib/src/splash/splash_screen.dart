@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../bottm_nav_bar/widgets.dart';
 import '../form/login.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -23,15 +24,14 @@ class SplashScreen extends StatelessWidget {
             left: MediaQuery.of(context).size.height * 0.12,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
               },
               child: Text(
                 "Get Stated",
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 25,
-
-                ),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25),
               ),
             ),
           ),
