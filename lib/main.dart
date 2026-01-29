@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_ui/src/bottm_nav_bar/widgets.dart';
 import 'package:food_ui/src/form/login.dart';
+import 'package:food_ui/src/form/registation.dart';
 import 'package:food_ui/src/splash/splash_screen.dart';
 
 
@@ -23,7 +24,7 @@ class FoodApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home:SplashScreen()// LoginScreen()//BottomNavigationBarScreen(),
+            home:RegistationScreen()//SplashScreen()// LoginScreen()//BottomNavigationBarScreen(),
           );
         },
       ),

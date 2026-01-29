@@ -16,6 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmpasswordController = TextEditingController();
   bool _isPasswordVisible = false;
 
   @override
@@ -38,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.white,
                   ),
                 ),
+
                 SizedBox(height: 20),
                 Icon(Icons.lock_open_outlined, size: 70),
                 SizedBox(height: 20),
@@ -49,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: const InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
-                    labelText: "Email",
+                    labelText: "Email or phone number",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.pinkAccent,
@@ -78,6 +80,47 @@ class _LoginScreenState extends State<LoginScreen> {
                     filled: true,
                     fillColor: Colors.white,
                     labelText: "Password",
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _isPasswordVisible = !_isPasswordVisible;
+                        });
+                      },
+                      icon: Icon(
+                        _isPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                    ),
+
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.pinkAccent,
+                        width: 4,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(13)),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Enter a strong password***";
+                    }
+                    if (value.length < 6) {
+                      return "Password must be at least 6 characters long***";
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: 20),
+
+                //Confirm Password
+                TextFormField(
+                  obscureText: !_isPasswordVisible,
+                  controller: confirmpasswordController,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    labelText: "confirm password",
                     suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
