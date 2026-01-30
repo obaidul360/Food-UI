@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_ui/src/bottm_nav_bar/widgets.dart';
+import 'package:food_ui/src/for_test/google/signinpage.dart';
 import 'package:food_ui/src/form/login.dart';
 import 'package:food_ui/src/form/registation.dart';
 import 'package:food_ui/src/splash/splash_screen.dart';
@@ -12,8 +13,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(FoodApp());
+  runApp(const FoodApp());
 }
+
 
 class FoodApp extends StatelessWidget {
   const FoodApp({super.key});
@@ -28,7 +30,7 @@ class FoodApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
+            home: GoogleAuthService() //SplashScreen(),
           );
         },
       ),
