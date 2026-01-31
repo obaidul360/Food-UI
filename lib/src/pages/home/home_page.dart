@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:food_ui/src/pages/widgets/appbar.dart';
-import 'package:food_ui/src/pages/widgets/slider.dart';
+import 'package:food_ui/src/pages/home/widgets/appbar.dart';
+import 'package:food_ui/src/pages/home/widgets/slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,5 +39,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-

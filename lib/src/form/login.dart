@@ -7,7 +7,7 @@ import 'package:food_ui/src/form/widgets/text_field.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../bottm_nav_bar/widgets.dart';
-import '../pages/home.dart';
+import '../pages/home/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

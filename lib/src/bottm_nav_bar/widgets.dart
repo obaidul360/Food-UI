@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_ui/src/pages/favorite.dart';
-import 'package:food_ui/src/pages/home.dart';
-import 'package:food_ui/src/pages/profile.dart';
+import 'package:food_ui/src/pages/favorite/favorite_page.dart';
+import 'package:food_ui/src/pages/home/home_page.dart';
+import 'package:food_ui/src/pages/profile/profile_page.dart';
 
-import '../pages/cart.dart';
+import '../pages/cart/cart_page.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({super.key});
