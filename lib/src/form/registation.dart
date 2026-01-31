@@ -1,8 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-import '../pages/home.dart';
 import 'login.dart';
 
 class RegistationScreen extends StatefulWidget {

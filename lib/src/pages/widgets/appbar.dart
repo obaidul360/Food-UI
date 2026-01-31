@@ -4,7 +4,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String deliverytitle;
   final String nametitle;
 
-  const CustomAppBar({super.key, required this.deliverytitle, required this.nametitle});
+  const CustomAppBar({
+    super.key,
+    required this.deliverytitle,
+    required this.nametitle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +21,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(deliverytitle,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white,
-                ),
+              Text(
+                deliverytitle,
+                style: TextStyle(fontSize: 12, color: Colors.white),
               ),
               Row(
                 children: [
-                  Icon(
-                    Icons.location_on,
-                    size: 16,
-                    color: Colors.white,
-                  ),
+                  Icon(Icons.location_on, size: 16, color: Colors.white),
                   SizedBox(width: 4),
-                  Text( nametitle,
+                  Text(
+                    nametitle,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -50,11 +49,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Spacer(),
           IconButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.notifications_none,
-              color: Colors.white,
-              size: 28,
-            ),
+            icon: Icon(Icons.notification_add, color: Colors.white, size: 28),
           ),
         ],
       ),

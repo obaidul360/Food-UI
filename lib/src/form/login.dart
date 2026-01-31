@@ -1,7 +1,10 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_ui/src/form/registation.dart';
+import 'package:food_ui/src/form/widgets/text_field.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../bottm_nav_bar/widgets.dart';
 import '../pages/home.dart';
@@ -14,6 +17,40 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  Future<void> signInWithGoogle(BuildContext context) async {
+    try {
+      // Google account select
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+      if (googleUser == null) return;
+
+      // Authentication
+      final GoogleSignInAuthentication googleAuth =
+      await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      // Firebase sign in
+      await _auth.signInWithCredential(credential);
+
+      // Next Page
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => BottomNavigationBarScreen()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Login Failed: $e")));
+    }
+  }
+
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
@@ -48,34 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 20),
 
                 /// Email Field
-                TextFormField(
-                  controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    labelText: "Email or phone number",
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.pinkAccent,
-                        width: 4,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(13)),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please enter email.***";
-                    }
-                    bool isEmail = value.contains("@");
-                    bool isPhone = value.length == 11;
-
-                    if (!isEmail && !isPhone) {
-                      return "Enter valid email or phone number";
-                    }
-                    return null;
-                  },
-                ),
+                EmailFieldWidgets(emailController: emailController),
                 SizedBox(height: 20),
 
                 /// Password Field
@@ -174,6 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
                 const SizedBox(height: 30),
+                //LogIn
                 InkWell(
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
@@ -248,17 +259,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 15),
+
+                //Continue with Google, Facebook, TikTok
                 Row(
                   spacing: 8,
                   children: [
                     Expanded(
                       child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
-                        },
+                        onTap: () => signInWithGoogle(context),
                         child: Container(
                           height: 40,
                           width: double.infinity,
@@ -346,3 +354,5 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
