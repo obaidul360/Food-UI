@@ -40,23 +40,26 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Profile")),
-      body: Column(
-        children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundImage: NetworkImage(user?.photoURL ?? ""),
-          ),
-          const SizedBox(height: 10),
-          Text(user?.displayName ?? ""),
-          Text(user?.email ?? ""),
-          ElevatedButton(
-            onPressed: () async {
-              await GoogleAuthService().signOut(context);
-            },
-            child: Text("Logout"),
-          ),
-        ],
+      appBar: AppBar(centerTitle: true,title: Text("Profile")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment:MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 40,
+              backgroundImage: NetworkImage(user?.photoURL ?? ""),
+            ),
+            const SizedBox(height: 10),
+            Text(user?.displayName ?? ""),
+            Text(user?.email ?? ""),
+            ElevatedButton(
+              onPressed: () async {
+                await GoogleAuthService().signOut(context);
+              },
+              child: Text("Logout"),
+            ),
+          ],
+        ),
       ),
     );
   }
