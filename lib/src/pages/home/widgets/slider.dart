@@ -10,7 +10,7 @@ class CaroselSliderWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 200,
+        height: 180,
         autoPlay: true,
         enlargeCenterPage: true,
         viewportFraction: 0.8,

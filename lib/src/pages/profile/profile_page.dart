@@ -40,13 +40,13 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true,title: Text("Profile")),
+      appBar: AppBar(centerTitle: true, title: Text("Profile")),
       body: Center(
         child: Column(
-          mainAxisAlignment:MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: 40,
+              radius: 50,
               backgroundImage: NetworkImage(user?.photoURL ?? ""),
             ),
             const SizedBox(height: 10),
@@ -56,7 +56,14 @@ class _ProfilePageState extends State<ProfilePage> {
               onPressed: () async {
                 await GoogleAuthService().signOut(context);
               },
-              child: Text("Logout"),
+              child: Text(
+                "Logout",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),
